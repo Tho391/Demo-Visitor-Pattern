@@ -203,7 +203,6 @@ namespace VisitorPattern
 
         private void newTurn()
         {
-
             IronKnightChoose = false;
             GoldenKnightChoose = false;
             HammerOrkChoose = false;
@@ -236,7 +235,33 @@ namespace VisitorPattern
             }
         }
 
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
 
+        private void reset()
+        {
+            IronKnightChoose = false;
+            GoldenKnightChoose = false;
+            HammerOrkChoose = false;
+            AxeOrkChoose = false;
+            pbAxeOrk.BorderStyle = BorderStyle.None;
+            pbHammerOrk.BorderStyle = BorderStyle.None;
+            pbIronKnight.BorderStyle = BorderStyle.None;
+            pbGoldenKnight.BorderStyle = BorderStyle.None;
+
+            hammerOrk = new HammerOrk();
+            axeOrk = new AxeOrk();
+
+            lblHammerOrkHp.Text = hammerOrk.getHp().ToString();
+            lblAxeOrkHp.Text = axeOrk.getHp().ToString();
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
     public interface Human
     {
